@@ -21,14 +21,12 @@ router.use((req: Request, res: Response, next) => {
 
 // Get all users
 router.get('/', (req: Request, res: Response) => {
-    console.log('Request received ...');
     console.log('Fetching all users');
     res.json(users);
 });
 
 // Add a new user
 router.post('/', (req: Request, res: Response) => {
-    console.log('Request received ...');
     const newUser = {
         id: faker.number.int(100),
         name: faker.person.firstName(),
@@ -43,7 +41,6 @@ router.post('/', (req: Request, res: Response) => {
 
 // Get user by ID
 router.get('/:id', (req: Request, res: Response) => {
-    console.log('Request received ...');
     console.log(`Fetching user with ID: ${req.params.id}`);
     const user = users.find(u => u.id === parseInt(req.params.id));
 
@@ -59,7 +56,6 @@ router.get('/:id', (req: Request, res: Response) => {
 
 // Delete a user by ID
 router.delete('/:id', (req: Request, res: Response) => {
-    console.log('Request received ...');
     console.log('request params', req.params);
     console.log(`Deleting user with ID: ${req.params.id}`);
     const userIndex = users.findIndex(u => u.id === parseInt(req.params.id));
