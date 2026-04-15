@@ -47,6 +47,7 @@ test.describe('User management API', () => {
     test('delete user: should return 404 if user not found', async ({ request }) => {
         const response = await request.delete(`${baseURL}/${createdUser.id}`);
         expect(response.status()).toBe(StatusCodes.OK);
+        await new Promise(res => setTimeout(res, 200));
         const response2 = await request.delete(`${baseURL}/${createdUser.id}`);
         expect(response2.status()).toBe(StatusCodes.NOT_FOUND);
     });
